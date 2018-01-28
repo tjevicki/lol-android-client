@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LeagueofLegendsClient.iml" filepath="$PROJECT_DIR$/LeagueofLegendsClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lol-android-client.iml" filepath="$PROJECT_DIR$/lol-android-client.iml" />
     </modules>
   </component>
 </project>
