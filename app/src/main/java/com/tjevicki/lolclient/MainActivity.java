@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.tjevicki.lolclient.presentation.ChampionDetailsFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -14,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new ChampionDetailsFragment());
+        fragmentTransaction.replace(R.id.fragment_container, ChampionDetailsFragment.newInstance(266));
         fragmentTransaction.commit();
     }
 }
