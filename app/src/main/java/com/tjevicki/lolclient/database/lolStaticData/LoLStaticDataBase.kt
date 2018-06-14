@@ -5,14 +5,25 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.tjevicki.lolclient.core.SingleArgumentSingletonHolder
+import com.tjevicki.lolclient.database.lolStaticData.LoLStaticDataBase.Companion.create
 
-@Database(entities = [Champion::class], version = 1)
+@Database(entities = [Champion::class], version = 1, exportSchema = false)
 abstract class LoLStaticDataBase : RoomDatabase() {
-    abstract fun lolStaticDataStore(): LoLStaticDataStore
+    abstract fun championsStore(): ChampionsStore
 
     companion object : SingleArgumentSingletonHolder<LoLStaticDataBase, Context>({
-        Room.databaseBuilder(
-                it.applicationContext, LoLStaticDataBase::class.java, "lol_static_data")
-                .build()
-    })
+        create(it.applicationContext)
+    }) {
+        private const val DB_NAME = "lol_static_data"
+
+        fun create(context: Context) =
+            Room.databaseBuilder(
+                    context.applicationContext, LoLStaticDataBase::class.java, DB_NAME)
+                    .build()
+
+        fun createInMemory(context: Context) =
+            Room.inMemoryDatabaseBuilder(
+                    context.applicationContext, LoLStaticDataBase::class.java)
+                    .build()
+    }
 }

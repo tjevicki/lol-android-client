@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -25,7 +26,7 @@ dependencies {
 
     // Dependency injection
     implementation 'com.google.dagger:dagger:2.11'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
 
     // UI
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -37,11 +38,11 @@ dependencies {
 
     // Architecture components: View model and Live data
     implementation "android.arch.lifecycle:extensions:1.1.1"
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    kapt "android.arch.lifecycle:compiler:1.1.1"
 
     // Architecture components: Room database
     implementation "android.arch.persistence.room:runtime:1.1.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.0"
+    kapt "android.arch.persistence.room:compiler:1.1.0"
 
     // Test
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
