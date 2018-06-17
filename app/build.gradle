@@ -24,13 +24,19 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    // Core
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$support_library_version"
+
     // Dependency injection
+    implementation "com.jakewharton:butterknife:$butterknife_version"
+    kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
     implementation 'com.google.dagger:dagger:2.11'
     kapt 'com.google.dagger:dagger-compiler:2.11'
 
     // UI
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation "com.android.support:recyclerview-v7:$support_library_version"
 
     // Network
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -49,7 +55,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
